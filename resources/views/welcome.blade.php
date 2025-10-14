@@ -26,7 +26,7 @@
         <div class="row mt-4">
             <div class="col-lg-12">
                 @if(isset($shortCode))
-                    <p>Short URL: <a href="{{ $shortCode->original_url }}" target="_blank"> Visit URL</a></p>
+                    <p>Short URL: <a href="{{ $shortCode->original_url }}" target="_blank"> Visit URL : {{ $shortCode->original_url }}</a></p>
 
                     <p id="redirectText">Redirecting in 3 seconds...</p>
 
