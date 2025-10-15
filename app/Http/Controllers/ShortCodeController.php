@@ -18,14 +18,11 @@ class ShortCodeController extends Controller
                 $shortCode->increment("clicks");
 
                 $data["shortCode"] = $shortCode;
-
-                return view("welcome")->with($data);
-
-               // return redirect()->away($shortCode->original_url);
+            }else{
+                $data["invalidCodeMsg"] = "Uh-oh! We can’t seem to find the page you’re looking for right now.";
             }
-            // You may fire exception or 404
         }
 
-        return view("welcome");
+        return view("welcome")->with($data);
     }
 }

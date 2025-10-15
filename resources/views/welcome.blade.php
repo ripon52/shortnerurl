@@ -45,6 +45,12 @@
                         }, 1000);
                     </script>
                 @endif
+
+                @isset($invalidCodeMsg)
+                    <div class="alert alert-danger mt-4" role="alert">
+                        Invalid! {{ $invalidCodeMsg }}
+                    </div>
+                @endisset
             </div>
         </div>
     </div>
