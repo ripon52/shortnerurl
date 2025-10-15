@@ -3,7 +3,8 @@
 namespace App\Traits\Api;
 
 use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Http\Client\HttpClientException;
+use Illuminate\Http\Exceptions\HttpResponseException;
+
 
 trait ApiResponseTrait
 {
@@ -23,12 +24,12 @@ trait ApiResponseTrait
 
     protected function failedValidation(Validator $validator)
     {
-        throw new HttpClientException(
+        throw new HttpResponseException(
             $this->sendResponse(
             422,
             "Sorry! Validation Failed",
             [],
-            $validator->errors()->all()
+            $validator->errors()
         ));
     }
 

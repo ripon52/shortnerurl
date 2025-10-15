@@ -24,7 +24,6 @@ class AccessTokenController extends Controller
         }
         catch(\Throwable $th){
 
-
             return $this->sendResponse(500, "Something went wrong! - ".$th->getMessage(), [], $this->errorArray($th));
         }
     }

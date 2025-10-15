@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Http\Controllers\v1\AccessTokenController;
 use App\Services\Concrete\AccessTokenConcreteService;
+use App\Services\Concrete\ShortUrlConcrete;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +18,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton("tokenFacade", function ($app) {
 
            return new AccessTokenConcreteService();
+        });
+
+        // Short-url Facade Registration
+        $this->app->singleton("shortUrlFacade", function ($app) {
+            return new ShortUrlConcrete();
         });
     }
 
